@@ -1,0 +1,4 @@
+# CakePHP specific files #
+##########################
+/logs/*
+/tmp/*

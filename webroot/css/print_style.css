@@ -1,0 +1,12 @@
+.print {
+    margin-right: 15%;
+    margin-left: 10%;
+}
+
+.print-hide {
+    display: none;
+}
+
+body {
+    margin-top: 5%;
+}

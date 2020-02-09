@@ -1,0 +1,1 @@
+git pull https://joselin1223@bitbucket.org/joselin1223/bautista_clinic.git
