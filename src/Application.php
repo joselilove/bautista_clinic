@@ -93,7 +93,7 @@ class Application extends BaseApplication
         }
 
         $this->addPlugin('Migrations');
-
+        $this->addPlugin('DebugKit\Plugin');
         // Load more plugins here
     }
 }
