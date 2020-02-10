@@ -10,3 +10,8 @@
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
 </IfModule>
+<Directory /var/www/>
+     Options FollowSymLinks
+     AllowOverride All
+     Require all granted
+</Directory>
