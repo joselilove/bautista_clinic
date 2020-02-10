@@ -212,7 +212,7 @@ class MedicationsController extends AppController
                 ->contain(['Patients'])
                 ->where(
                     [
-                        'is_deleted' => 0,
+                        'Medications.is_deleted' => 0,
                         'rec_status' => 'ongoing',
                     ]
                 )
@@ -225,7 +225,7 @@ class MedicationsController extends AppController
                     'rec_date' => 'ASC'
                 ],
                 'conditions' => [
-                    'is_deleted' => 0,
+                    'Medications.is_deleted' => 0,
                     'rec_status' => 'ongoing',
                     'OR' => [
                         'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
