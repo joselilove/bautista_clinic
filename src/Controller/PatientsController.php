@@ -37,16 +37,16 @@ class PatientsController extends AppController
         $this->paginate = [
             'limit' => 7,
             'order' => [
-                'Patients.pat_fname' => 'asc'
+                'pat_fname' => 'asc'
             ],
             'conditions' => [
-                'Patients.is_deleted' => 0,
+                'is_deleted' => 0,
                 'OR' => [
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, ". ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                    'Patients.pat_address LIKE' => "%" . $search . "%",
-                    'Patients.pat_occupation LIKE' => "%" . $search . "%",
+                    'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                    'lower(CONCAT(pat_fname, " ", pat_middle_initial, ". ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                    'lower(CONCAT(pat_fname, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                    'pat_address LIKE' => "%" . $search . "%",
+                    'pat_occupation LIKE' => "%" . $search . "%",
                 ]
             ],
         ];
@@ -135,7 +135,7 @@ class PatientsController extends AppController
             ->findById($patientId)
             ->where(
                 [
-                    'Patients.is_deleted' => 0,
+                    'is_deleted' => 0,
                 ]
             )
             ->first();

@@ -36,9 +36,9 @@ class UsersTable extends Table
         $query->where(
             [
                 'OR' => [
-                    'lower(Users.name) LIKE' => strtolower("%" . $options['name'] . "%"),
-                    'lower(Users.username) LIKE' => strtolower("%" . $options['name'] . "%"),
-                    'lower(Users.email) LIKE' => strtolower("%" . $options['name'] . "%")
+                    'lower(name) LIKE' => strtolower("%" . $options['name'] . "%"),
+                    'lower(username) LIKE' => strtolower("%" . $options['name'] . "%"),
+                    'lower(email) LIKE' => strtolower("%" . $options['name'] . "%")
                 ]
             ]
         );

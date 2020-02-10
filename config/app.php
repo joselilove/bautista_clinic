@@ -270,6 +270,7 @@ return [
             'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
+            'quoteIdentifiers' => false,
         ],
     ],
     // More configuration below.

@@ -29,16 +29,16 @@ class MedicationsController extends AppController
             $this->paginate = [
                 'limit' => 9,
                 'order' => [
-                    'Patients.id' => 'desc'
+                    'id' => 'desc'
                 ],
                 'conditions' => [
-                    'Patients.is_deleted' => 0,
+                    'is_deleted' => 0,
                     'OR' => [
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, ". ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                        'Patients.pat_address LIKE' => "%" . $search . "%",
-                        'Patients.pat_occupation LIKE' => "%" . $search . "%",
+                        'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                        'lower(CONCAT(pat_fname, " ", pat_middle_initial, ". ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                        'lower(CONCAT(pat_fname, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                        'pat_address LIKE' => "%" . $search . "%",
+                        'pat_occupation LIKE' => "%" . $search . "%",
                     ]
                 ],
             ];
@@ -141,11 +141,11 @@ class MedicationsController extends AppController
             ->contain(['Patients'])
             ->where(
                 [
-                    'Medications.is_deleted' => 0,
-                    'Medications.rec_status' => 'ongoing',
+                    'is_deleted' => 0,
+                    'rec_status' => 'ongoing',
                 ]
             )
-            ->order(['Medications.rec_date' => 'ASC'])
+            ->order(['rec_date' => 'ASC'])
             ->limit(4)
             ->all();
         return $this->response
@@ -212,25 +212,25 @@ class MedicationsController extends AppController
                 ->contain(['Patients'])
                 ->where(
                     [
-                        'Medications.is_deleted' => 0,
-                        'Medications.rec_status' => 'ongoing',
+                        'is_deleted' => 0,
+                        'rec_status' => 'ongoing',
                     ]
                 )
-                ->order(['Medications.rec_date' => 'ASC'])
+                ->order(['rec_date' => 'ASC'])
                 ->first();
             $this->paginate = [
                 'contain' => ['Patients'],
                 'limit' => 6,
                 'order' => [
-                    'Medications.rec_date' => 'ASC'
+                    'rec_date' => 'ASC'
                 ],
                 'conditions' => [
-                    'Medications.is_deleted' => 0,
-                    'Medications.rec_status' => 'ongoing',
+                    'is_deleted' => 0,
+                    'rec_status' => 'ongoing',
                     'OR' => [
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, ". ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                        'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%")
+                        'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                        'lower(CONCAT(pat_fname, " ", pat_middle_initial, ". ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                        'lower(CONCAT(pat_fname, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%")
                     ]
                 ],
             ];
@@ -240,7 +240,7 @@ class MedicationsController extends AppController
                 $medication = $this->Medications
                     ->findById($formData['id'])
                     ->contain(['Patients'])
-                    ->where(['Medications.rec_status' => 'ongoing'])
+                    ->where(['rec_status' => 'ongoing'])
                     ->first();
                 if ($medication  == '') {
                     $this->Flash->error(__('Please select patient. Thank you'));
@@ -275,10 +275,10 @@ class MedicationsController extends AppController
             'contain' => ['Patients'],
             'limit' => 7,
             'order' => [
-                'Medications.modified' => 'ASC'
+                'modified' => 'ASC'
             ],
             'conditions' => [
-                'Medications.rec_status' => 'done'
+                'rec_status' => 'done'
             ],
             'group' => 'patient_id'
         ];
@@ -303,11 +303,11 @@ class MedicationsController extends AppController
             'contain' => ['Patients'],
             'limit' => 10,
             'order' => [
-                'Medications.modified' => 'ASC'
+                'modified' => 'ASC'
             ],
             'conditions' => [
-                'Medications.rec_status' => 'done',
-                'Medications.patient_id' => $patient_id
+                'rec_status' => 'done',
+                'patient_id' => $patient_id
             ]
         ];
         $patients = $this->paginate(
@@ -397,8 +397,8 @@ class MedicationsController extends AppController
                 ]
             )
             ->where(
-                ['Medications.modified LIKE' => $date . '%'],
-                ['Medications.rec_status' => 'done']
+                ['modified LIKE' => $date . '%'],
+                ['rec_status' => 'done']
             );
         $count = 0;;
         foreach ($query as $row) {
@@ -425,8 +425,8 @@ class MedicationsController extends AppController
                 ]
             )
             ->where(
-                ['Medications.modified LIKE' => $date . '%'],
-                ['Medications.rec_status' => 'done']
+                ['modified LIKE' => $date . '%'],
+                ['rec_status' => 'done']
             );
         $count = 0;;
         foreach ($query as $row) {
@@ -496,21 +496,21 @@ class MedicationsController extends AppController
         $this->paginate = [
             'limit' => 20,
             'order' => [
-                'Medications.modified' => 'ASC'
+                'modified' => 'ASC'
             ],
             'conditions' => [
                 'OR' => [
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%"),
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_lname)) LIKE' => strtolower("%" . $search . "%")
-                    // 'Patients.pat_fname LIKE' => "%" . $search . "%",
-                    // 'Patients.pat_lname LIKE' => "%" . $search . "%"
+                    'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%"),
+                    'lower(CONCAT(pat_fname, " ", pat_lname)) LIKE' => strtolower("%" . $search . "%")
+                    // 'pat_fname LIKE' => "%" . $search . "%",
+                    // 'pat_lname LIKE' => "%" . $search . "%"
                 ]
             ]
         ];
         $record = $this->paginate(
             $this->Medications
                 ->find()
-                ->where(['Medications.rec_status' => 'done'])
+                ->where(['rec_status' => 'done'])
                 ->contain('Patients')
         );
         $this->set(compact('record', 'search'));
@@ -527,7 +527,7 @@ class MedicationsController extends AppController
     {
         $medication = $this->Medications
             ->findByPatientId($patient_id)
-            ->where(['Medications.rec_status' => 'done'])
+            ->where(['rec_status' => 'done'])
             ->all();
         $number = 0;
         foreach ($medication as $row) {

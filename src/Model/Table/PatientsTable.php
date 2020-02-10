@@ -37,13 +37,13 @@ class PatientsTable extends Table
         $query->where(
             [
                 'OR' => [
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, " ", Patients.pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_middle_initial, ". ", Patients.pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
-                    'lower(CONCAT(Patients.pat_fname, " ", Patients.pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
-                    'lower(Patients.pat_address) LIKE' => strtolower("%" . $options['name'] . "%"),
-                    'lower(Patients.pat_occupation) LIKE' => strtolower("%" . $options['name'] . "%"),
-                    'lower(Patients.pat_contact) LIKE' => strtolower("%" . $options['name'] . "%"),
-                    'lower(Patients.pat_age) LIKE' => strtolower("%" . $options['name'] . "%")
+                    'lower(CONCAT(pat_fname, " ", pat_middle_initial, " ", pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
+                    'lower(CONCAT(pat_fname, " ", pat_middle_initial, ". ", pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
+                    'lower(CONCAT(pat_fname, " ", pat_lname)) LIKE'=> strtolower("%" . $options['name'] . "%"),
+                    'lower(pat_address) LIKE' => strtolower("%" . $options['name'] . "%"),
+                    'lower(pat_occupation) LIKE' => strtolower("%" . $options['name'] . "%"),
+                    'lower(pat_contact) LIKE' => strtolower("%" . $options['name'] . "%"),
+                    'lower(pat_age) LIKE' => strtolower("%" . $options['name'] . "%")
                 ]
             ]
         );
@@ -73,7 +73,7 @@ class PatientsTable extends Table
         $this->hasMany(
             'Medications',
             [
-                'Patients.id' => 'Medications.patient_id'
+                'id' => 'patient_id'
             ]
         );
     }
