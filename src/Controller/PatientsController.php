@@ -13,6 +13,24 @@ use App\Controller\AppController;
  */
 class PatientsController extends AppController
 {
+    /**
+     * This function limit the user accessibility
+     *
+     * @return void
+     */
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(
+            [
+                'login',
+                'logout',
+                'register',
+                'recover'
+            ]
+        );
+    }
+
     public function index()
     {
         $search = $this->request->query('search');
