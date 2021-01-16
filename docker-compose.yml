@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: bautista-clinic-app
+    hostname: "bautista.clinic"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3200:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - bautista-clinic-mysql
+    networks:
+      - bautista-clinic-network
+
+  bautista-clinic-mysql:
+    container_name: bautista-clinic-mysql
+    image: mysql:5.6.47
+    hostname: bautista-clinic-mysql
+    ports:
+      - "33106:3306"
+    environment:
+      - MYSQL_DATABASE=bautista-clinic
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - bautista-clinic-network
+
+networks:
+  bautista-clinic-network:
+    driver: bridge

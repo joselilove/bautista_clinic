@@ -177,7 +177,7 @@ return [
      *   breathing room to complete logging or error handling.
      */
     'Error' => [
-        'errorLevel' => E_ALL,
+        'errorLevel' => E_ALL & ~E_USER_DEPRECATED,
         'exceptionRenderer' => ExceptionRenderer::class,
         'skipLog' => [],
         'log' => true,
@@ -219,8 +219,8 @@ return [
         'mail' => [
             'host' => 'smtp.gmail.com',
             'port' => 587,
-            'username' => 'clsu.procurement.service@gmail.com',
-            'password' => '123456Admins',
+            'username' => 'joselin.portfolio.system@gmail.com',
+            'password' => '12345678zZ',
             'tls' => true,
             'className' => 'Smtp'
         ]
@@ -263,10 +263,10 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' => '65.19.141.67',
-            'username' => 'selin123',
-            'password' => '12345678zZ',
-            'database' => 'selin123_clinic',
+            'host' => 'bautista-clinic-mysql',
+            'username' => 'root',
+            'password' => 'password',
+            'database' => 'bautista-clinic',
             'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
@@ -345,6 +345,6 @@ return [
      * To use database sessions, load the SQL file located at config/schema/sessions.sql
      */
     'Session' => [
-        'defaults' => 'php',
+        'defaults' => 'database',
     ],
 ];

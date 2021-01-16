@@ -126,9 +126,8 @@ class UsersController extends AppController
                     $email->transport('mail');
                     $email
                         ->emailFormat('html')
-                        ->from(['bautista.clinic@email.com.ph' => 'Baustista Clinic'])
+                        ->from(['joselin.portfolio.system@gmail.com' => 'Baustista Clinic'])
                         ->to($emailAddress)
-                        ->cc('macayananjoselin@gmail.com')
                         ->subject('New password')
                         ->send('Your new password is <b>' . $newPassword . '</b>');
                     $this->Flash->success(__('Your new password has been sent into your email'));

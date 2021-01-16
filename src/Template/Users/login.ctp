@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?= $this->Html->css('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css') ?>
-<?= $this->Html->css('/css/auth.css') ?>
+<?= $this->Html->css('auth.css') ?>
 <nav class="navbar navbar-light fixed-top" style="background-color:#20c997; opacity:0.8">
     <span class="navbar-brand mb-0 h3" style="margin-left:auto; margin-right:auto">Bautista Clinic Record Management System</span>
 </nav>
@@ -15,7 +15,7 @@
         ]
     ) ?>
     <div class="avatar">
-        <img src="/img/profile/profile.png" alt="Avatar">
+        <img src="img/profile/profile.png" alt="Avatar">
     </div>
     <h2 class="text-center">Login</h2>
     <div class="form-group">
@@ -38,13 +38,13 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
     </div>
     <div class="clearfix text-center">
-        <p class="text-center">Don't have an account? <a href="/users/register" class="text-success"><b>Sign up here!</b></a></p>
-        <a href="/users/recover">Forgot Password?</a>
+        <p class="text-center">Don't have an account? <a href="users/register" class="text-success"><b>Sign up here!</b></a></p>
+        <a href="users/recover">Forgot Password?</a>
     </div>
     <?= $this->Form->end() ?>
 </div>
 <script>
-$(document).ready(function () {
-    $('footer').hide();
-});
+    $(document).ready(function() {
+        $('footer').hide();
+    });
 </script>

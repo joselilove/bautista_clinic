@@ -27,6 +27,9 @@ class AppController extends Controller
      */
     public function initialize()
     {
+        $currentLocation = $this->request->params['controller'] . '@' . $this->request->params['action'];
+        $this->log($currentLocation, 'debug');
+
         parent::initialize();
 
         $this->loadComponent('RequestHandler', [
