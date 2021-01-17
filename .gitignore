@@ -3,3 +3,4 @@
 /logs/*
 /tmp/*
 /vendor/*
+/config/app.php
