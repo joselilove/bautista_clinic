@@ -20,7 +20,7 @@ class UpdateSessionsId extends AbstractMigration
             [
                 'default' => null,
                 'limit' => 40,
-                'null' => true,
+                'null' => false,
                 'encoding' => 'ascii',
                 'collation' => 'ascii_bin',
             ]
