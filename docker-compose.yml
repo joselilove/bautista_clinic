@@ -23,7 +23,7 @@ services:
     ports:
       - "33106:3306"
     environment:
-      - MYSQL_DATABASE=bautista-clinic
+      - MYSQL_DATABASE=bautista_clinic
       - MYSQL_ROOT_PASSWORD=password
     networks:
       - bautista-clinic-network

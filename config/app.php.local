@@ -266,7 +266,7 @@ return [
             'host' => 'bautista-clinic-mysql',
             'username' => 'root',
             'password' => 'password',
-            'database' => 'bautista-clinic',
+            'database' => 'bautista_clinic',
             'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
