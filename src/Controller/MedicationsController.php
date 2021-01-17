@@ -141,8 +141,8 @@ class MedicationsController extends AppController
             ->contain(['Patients'])
             ->where(
                 [
-                    'is_deleted' => 0,
-                    'rec_status' => 'ongoing',
+                    'Medications.is_deleted' => 0,
+                    'Medications.rec_status' => 'ongoing',
                 ]
             )
             ->order(['rec_date' => 'ASC'])
@@ -275,7 +275,7 @@ class MedicationsController extends AppController
             'contain' => ['Patients'],
             'limit' => 7,
             'order' => [
-                'modified' => 'ASC'
+                'Medications.modified' => 'ASC'
             ],
             'conditions' => [
                 'rec_status' => 'done'
@@ -303,7 +303,7 @@ class MedicationsController extends AppController
             'contain' => ['Patients'],
             'limit' => 10,
             'order' => [
-                'modified' => 'ASC'
+                'Medications.modified' => 'ASC'
             ],
             'conditions' => [
                 'rec_status' => 'done',
@@ -397,8 +397,8 @@ class MedicationsController extends AppController
                 ]
             )
             ->where(
-                ['modified LIKE' => $date . '%'],
-                ['rec_status' => 'done']
+                ['Medications.modified LIKE' => $date . '%'],
+                ['Medications.rec_status' => 'done']
             );
         $count = 0;;
         foreach ($query as $row) {
@@ -425,8 +425,8 @@ class MedicationsController extends AppController
                 ]
             )
             ->where(
-                ['modified LIKE' => $date . '%'],
-                ['rec_status' => 'done']
+                ['Medications.modified LIKE' => $date . '%'],
+                ['Medications.rec_status' => 'done']
             );
         $count = 0;;
         foreach ($query as $row) {
@@ -496,7 +496,7 @@ class MedicationsController extends AppController
         $this->paginate = [
             'limit' => 20,
             'order' => [
-                'modified' => 'ASC'
+                'Medications.modified' => 'ASC'
             ],
             'conditions' => [
                 'OR' => [
