@@ -31,17 +31,17 @@ UNLOCK TABLES;
 -- Dumping data for table `phinxlog`
 --
 
-LOCK TABLES `phinxlog` WRITE;
-/*!40000 ALTER TABLE `phinxlog` DISABLE KEYS */;
-INSERT INTO `phinxlog` VALUES (20210117055649,'CreateUsers','2021-01-17 07:08:09','2021-01-17 07:08:10',0),(20210117062212,'CreateMedications','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117063510,'CreatePatients','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117065406,'CreateSessions','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117070716,'UpdateSessionsId','2021-01-17 07:08:10','2021-01-17 07:08:10',0);
-/*!40000 ALTER TABLE `phinxlog` ENABLE KEYS */;
-UNLOCK TABLES;
+-- LOCK TABLES `phinxlog` WRITE;
+-- /*!40000 ALTER TABLE `phinxlog` DISABLE KEYS */;
+-- INSERT INTO `phinxlog` VALUES (20210117055649,'CreateUsers','2021-01-17 07:08:09','2021-01-17 07:08:10',0),(20210117062212,'CreateMedications','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117063510,'CreatePatients','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117065406,'CreateSessions','2021-01-17 07:08:10','2021-01-17 07:08:10',0),(20210117070716,'UpdateSessionsId','2021-01-17 07:08:10','2021-01-17 07:08:10',0);
+-- /*!40000 ALTER TABLE `phinxlog` ENABLE KEYS */;
+-- UNLOCK TABLES;
 
-LOCK TABLES `sessions` WRITE;
-/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('ho4hkjki7svocr10n3nt4f9jtv','2021-01-17 05:28:07','2021-01-17 06:50:36','Config|a:1:{s:4:\"time\";i:1610866236;}Auth|a:1:{s:4:\"User\";O:21:\"App\\Model\\Entity\\User\":11:{s:14:\"\0*\0_accessible\";a:8:{s:4:\"name\";b:1;s:8:\"username\";b:1;s:8:\"password\";b:1;s:8:\"emp_type\";b:1;s:5:\"email\";b:1;s:9:\"activated\";b:1;s:8:\"modified\";b:1;s:7:\"created\";b:1;}s:10:\"\0*\0_hidden\";a:1:{i:0;s:8:\"password\";}s:14:\"\0*\0_properties\";a:9:{s:2:\"id\";i:1;s:4:\"name\";s:15:\"John Y. Polanes\";s:8:\"username\";s:9:\"selin1223\";s:8:\"password\";s:60:\"$2y$10$btovJYse08vCsHdCZHqKn.jSRIXFHnRHbixpo.kT0qkcaqtQxWlLm\";s:8:\"emp_type\";s:1:\"0\";s:5:\"email\";s:31:\"macayananjoselin@mailinator.com\";s:9:\"activated\";i:1;s:8:\"modified\";O:20:\"Cake\\I18n\\FrozenTime\":3:{s:4:\"date\";s:26:\"2021-01-17 05:28:06.800936\";s:13:\"timezone_type\";i:3;s:8:\"timezone\";s:3:\"UTC\";}s:7:\"created\";O:20:\"Cake\\I18n\\FrozenTime\":3:{s:4:\"date\";s:26:\"2019-11-08 22:04:48.000000\";s:13:\"timezone_type\";i:3;s:8:\"timezone\";s:3:\"UTC\";}}s:12:\"\0*\0_original\";a:0:{}s:11:\"\0*\0_virtual\";a:0:{}s:13:\"\0*\0_className\";N;s:9:\"\0*\0_dirty\";a:0:{}s:7:\"\0*\0_new\";b:0;s:10:\"\0*\0_errors\";a:0:{}s:11:\"\0*\0_invalid\";a:0:{}s:17:\"\0*\0_registryAlias\";s:5:\"Users\";}}Flash|a:0:{}',1610867676),('m2oug5tdstki1d4gf27c61r6f4','2021-01-16 19:15:01','2021-01-16 19:15:04','Config|a:1:{s:4:\"time\";i:1610824503;}Flash|a:0:{}Auth|a:0:{}',1610825944);
-/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
-UNLOCK TABLES;
+-- LOCK TABLES `sessions` WRITE;
+-- /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+-- INSERT INTO `sessions` VALUES ('ho4hkjki7svocr10n3nt4f9jtv','2021-01-17 05:28:07','2021-01-17 06:50:36','Config|a:1:{s:4:\"time\";i:1610866236;}Auth|a:1:{s:4:\"User\";O:21:\"App\\Model\\Entity\\User\":11:{s:14:\"\0*\0_accessible\";a:8:{s:4:\"name\";b:1;s:8:\"username\";b:1;s:8:\"password\";b:1;s:8:\"emp_type\";b:1;s:5:\"email\";b:1;s:9:\"activated\";b:1;s:8:\"modified\";b:1;s:7:\"created\";b:1;}s:10:\"\0*\0_hidden\";a:1:{i:0;s:8:\"password\";}s:14:\"\0*\0_properties\";a:9:{s:2:\"id\";i:1;s:4:\"name\";s:15:\"John Y. Polanes\";s:8:\"username\";s:9:\"selin1223\";s:8:\"password\";s:60:\"$2y$10$btovJYse08vCsHdCZHqKn.jSRIXFHnRHbixpo.kT0qkcaqtQxWlLm\";s:8:\"emp_type\";s:1:\"0\";s:5:\"email\";s:31:\"macayananjoselin@mailinator.com\";s:9:\"activated\";i:1;s:8:\"modified\";O:20:\"Cake\\I18n\\FrozenTime\":3:{s:4:\"date\";s:26:\"2021-01-17 05:28:06.800936\";s:13:\"timezone_type\";i:3;s:8:\"timezone\";s:3:\"UTC\";}s:7:\"created\";O:20:\"Cake\\I18n\\FrozenTime\":3:{s:4:\"date\";s:26:\"2019-11-08 22:04:48.000000\";s:13:\"timezone_type\";i:3;s:8:\"timezone\";s:3:\"UTC\";}}s:12:\"\0*\0_original\";a:0:{}s:11:\"\0*\0_virtual\";a:0:{}s:13:\"\0*\0_className\";N;s:9:\"\0*\0_dirty\";a:0:{}s:7:\"\0*\0_new\";b:0;s:10:\"\0*\0_errors\";a:0:{}s:11:\"\0*\0_invalid\";a:0:{}s:17:\"\0*\0_registryAlias\";s:5:\"Users\";}}Flash|a:0:{}',1610867676),('m2oug5tdstki1d4gf27c61r6f4','2021-01-16 19:15:01','2021-01-16 19:15:04','Config|a:1:{s:4:\"time\";i:1610824503;}Flash|a:0:{}Auth|a:0:{}',1610825944);
+-- /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+-- UNLOCK TABLES;
 
 
 LOCK TABLES `users` WRITE;
