@@ -51,7 +51,11 @@ RUN chmod g+s $APP_HOME
 
 RUN chmod -R o+w $APP_HOME/tmp
 
-RUN chmod -R o+w /var
+RUN chmod -R o+w /var/lib/php
+
+RUN chown -R apache /var/lib/php
+
+RUN chmod -R 775 /var/lib/php
 
 RUN yum clean all
 
